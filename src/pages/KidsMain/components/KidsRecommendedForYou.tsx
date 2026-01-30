@@ -6,14 +6,15 @@ import { Link, useMatch } from 'react-router-dom';
 import HeaderTitle from '../../Main/components/HeaderTitle';
 import VideoPopup from '../../Main/components/VideoPopup';
 import { useMovieStore } from '../../../store/useMovieStore';
-import { useTvStore } from '../../../store/useTvStore';
+// import { useTvStore } from '../../../store/useTvStore';
 import { useRecommendationStore } from '../../../store/useRecommendationStore';
 import { useProfileStore } from '../../../store/useProfileStore';
 import '../scss/KidsMovieList.scss';
+import type { LocalContentItem } from '../../../types/IContentTypes';
 
 const RecommendedForYou = () => {
   const { onFetchVideo } = useMovieStore();
-  const { onFetchTvVideo } = useTvStore();
+  // const { onFetchTvVideo } = useTvStore();
   const { recommendedItems, isLoading, onGenerateRecommendations } = useRecommendationStore();
   const { activeProfile } = useProfileStore();
 
@@ -22,7 +23,7 @@ const RecommendedForYou = () => {
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [youtubeKey, setYoutubeKey] = useState('');
-  const [popupData, setPopupData] = useState<any>(null);
+  const [popupData, setPopupData] = useState<LocalContentItem | null>(null);
   const [popupPos, setPopupPos] = useState({ top: 0, left: 0, width: 0 });
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,8 +36,7 @@ const RecommendedForYou = () => {
   // 키즈 모드에서도 추천 스토어가 이미 필터링된 데이터를 제공하므로
   // 추가 필터링 없이 그대로 사용
   const displayItems = recommendedItems;
-
-  const handleMouseEnter = (e: React.MouseEvent, el: any) => {
+  const handleMouseEnter = (e: React.MouseEvent, el: LocalContentItem) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
 
     const rect = e.currentTarget.getBoundingClientRect();
@@ -62,22 +62,17 @@ const RecommendedForYou = () => {
       setHoveredId(el.id);
 
       try {
-        let videos: any[] = [];
-        if (el.media_type === 'tv') {
-          videos = await onFetchTvVideo(String(el.id));
-        } else {
-          videos = await onFetchVideo(el.id);
-        }
-
+        // 키즈 영화 비디오 데이터 가져오기
+        const videos = await onFetchVideo(el.id);
         if (videos && videos.length > 0) {
           const trailer =
             videos.find(
-              (v: any) => (v.type === 'Trailer' || v.type === 'Teaser') && v.site === 'YouTube'
-            ) || videos.find((v: any) => v.site === 'YouTube');
-          setYoutubeKey(trailer?.key || '');
+              (v) => (v.type === 'Trailer' || v.type === 'Teaser') && v.site === 'YouTube'
+            ) || videos.find((v) => v.site === 'YouTube');
+          setYoutubeKey(trailer ? trailer.key : '');
         }
-      } catch (err) {
-        console.error('비디오 로드 실패:', err);
+      } catch (error) {
+        console.error(error);
         setYoutubeKey('');
       }
     }, 400);
@@ -139,11 +134,11 @@ const RecommendedForYou = () => {
           }}>
           <VideoPopup
             youtubeKey={youtubeKey}
-            title={popupData.title || popupData.name}
+            title={popupData.category === "movie" ? popupData.title : popupData.name}
             id={popupData.id}
             mediaType={popupData.media_type}
             posterPath={popupData.poster_path || ''}
-            backdropPath={popupData.backdrop_path}
+            backdropPath={popupData.backdrop_path || ''}
             overview={popupData.overview}
             onClose={handleMouseLeave}
           />

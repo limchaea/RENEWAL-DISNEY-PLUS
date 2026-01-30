@@ -211,7 +211,7 @@ export const useMovieStore = create<MovieState>((set, get) => ({
   // 영화의 예고편을 가져올 메서드
   // TODO movie_id 자리에 매개값으로 받아온 ${id}를 넣고, ?뒤에 api 키값 & 추가하기
   // `https://api.themoviedb.org/3/movie/movie_id/videos?language=en-US`
-  onFetchVideo: async (id: string) => {
+  onFetchVideo: async (id) => {
     try {
       const res = await fetch(
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`

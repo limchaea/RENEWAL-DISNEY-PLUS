@@ -16,7 +16,7 @@ export interface MediaBase {
 export interface WatchingItem {
   id: number;
   media_type: 'movie' | 'tv';
-  poster_path: string;
+  poster_path?: string;
   backdrop_path?: string;
   title?: string;
   name?: string;

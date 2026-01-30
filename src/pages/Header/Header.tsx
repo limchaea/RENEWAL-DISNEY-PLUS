@@ -7,10 +7,10 @@ import { useProfileStore } from '../../store/useProfileStore';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDepthOpen, setIsDepthOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isLogin, onLogout } = useAuthStore();
   const { profiles, activeProfileId, editActiveProfile } = useProfileStore();
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  // const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
@@ -55,9 +55,8 @@ const Header = () => {
   if (isProfilePage || isLoginPage || isSubPage || isPayPage) {
     return (
       <div
-        className={`Header isprofile pullInner ${isScrolled ? 'active' : ''} ${
-          kids ? 'kids' : ''
-        } `}>
+        className={`Header isprofile pullInner ${isScrolled ? 'active' : ''} ${kids ? 'kids' : ''
+          } `}>
         <div className="Header-left">
           <Link to="/">
             <img src="/images/logo.svg" alt="로고" />

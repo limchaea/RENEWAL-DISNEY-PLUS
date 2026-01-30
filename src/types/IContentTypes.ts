@@ -20,6 +20,7 @@ export interface LocalMovieItem extends BaseContent {
   original_title: string;
   title: string;
   release_date?: string; // 여기에 오타가 없는지 확인!
+  media_type: 'movie';
 }
 
 export interface LocalSeriesItem extends BaseContent {
@@ -28,6 +29,7 @@ export interface LocalSeriesItem extends BaseContent {
   name: string;
   origin_country: string[];
   first_air_date?: string;
+  media_type: 'tv';
 }
 
 export type LocalContentItem = LocalMovieItem | LocalSeriesItem;

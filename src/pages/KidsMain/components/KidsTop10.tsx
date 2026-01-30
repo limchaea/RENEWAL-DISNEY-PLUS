@@ -3,13 +3,14 @@ import '../../Main/scss/Top10List.scss';
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link, useMatch } from 'react-router-dom';
-import type { title } from '../../../types/IMovie';
+import type { Movie, title } from '../../../types/IMovie';
 import HeaderTitle from '../../Main/components/HeaderTitle';
 import { useKidsMoiveStore } from '../../../store/useKidsMovieStore';
 import { useMovieStore } from '../../../store/useMovieStore'; // 비디오 페칭용
 import VideoPopup from '../../Main/components/VideoPopup'; // 경로 확인 필요
 import 'swiper/swiper.css';
 import { useProfileStore } from '../../../store/useProfileStore';
+
 
 const KidsTop10 = ({ title }: title) => {
   const kids = useMatch('/kids/*');
@@ -24,7 +25,7 @@ const KidsTop10 = ({ title }: title) => {
   // --- 팝업 상태 관리 ---
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [youtubeKey, setYoutubeKey] = useState('');
-  const [popupData, setPopupData] = useState<any>(null);
+  const [popupData, setPopupData] = useState<Movie | null>(null);
   const [popupPos, setPopupPos] = useState({ top: 0, left: 0, width: 0 });
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ const KidsTop10 = ({ title }: title) => {
   }, [kidsTopMovie, onFetchTop10Movies]);
 
   // --- 화면 경계 인식 마우스 핸들러 ---
-  const handleMouseEnter = (e: React.MouseEvent, el: any) => {
+  const handleMouseEnter = (e: React.MouseEvent, el: Movie) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
 
     const rect = e.currentTarget.getBoundingClientRect();
@@ -72,11 +73,12 @@ const KidsTop10 = ({ title }: title) => {
         if (videos && videos.length > 0) {
           const trailer =
             videos.find(
-              (v: any) => (v.type === 'Trailer' || v.type === 'Teaser') && v.site === 'YouTube'
-            ) || videos.find((v: any) => v.site === 'YouTube');
+              (v) => (v.type === 'Trailer' || v.type === 'Teaser') && v.site === 'YouTube'
+            ) || videos.find((v) => v.site === 'YouTube');
           setYoutubeKey(trailer ? trailer.key : '');
         }
       } catch (error) {
+        console.error(error);
         setYoutubeKey('');
       }
     }, 400);
@@ -137,7 +139,7 @@ const KidsTop10 = ({ title }: title) => {
           }}>
           <VideoPopup
             youtubeKey={youtubeKey}
-            title={popupData.title} // 영화는 title 속성 사용
+            title={popupData.title}
             id={popupData.id}
             mediaType="movie"
             posterPath={popupData.poster_path || ''}

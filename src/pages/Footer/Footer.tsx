@@ -1,6 +1,5 @@
 import { useProfileStore } from '../../store/useProfileStore';
 import './scss/Footer.scss';
-import { useMatch } from 'react-router-dom';
 
 const Footer = () => {
   const { profiles, activeProfileId } = useProfileStore();

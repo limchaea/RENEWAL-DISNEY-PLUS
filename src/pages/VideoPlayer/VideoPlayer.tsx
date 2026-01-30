@@ -317,7 +317,7 @@ const VideoPlayer = () => {
   const handleWishToggle = () => {
     if (!id || !type || !player || !player.poster_path) return;
 
-    // ✅ 즉시 UI 반영
+    // 즉시 UI 반영
     setIsWishActive((prev) => !prev);
 
     const title = 'title' in player ? player.title : player.name;
@@ -386,9 +386,8 @@ const VideoPlayer = () => {
       <div className="playerMain">
         {player && (
           <img
-            src={`https://image.tmdb.org/t/p/original/${
-              player.backdrop_path || player.poster_path
-            }`}
+            src={`https://image.tmdb.org/t/p/original/${player.backdrop_path || player.poster_path
+              }`}
             alt={title}
           />
         )}

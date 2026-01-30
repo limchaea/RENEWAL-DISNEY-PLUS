@@ -25,7 +25,7 @@ const MyDisney = () => {
         <div className="myDisneyTextWrap">
           <div className="myDisneyInfoText">
             디즈니+는 The Walt Disney Family of Companies의 계열사입니다. MyDisney 계정으로 디즈니+,
-            ESPN, Walt Disney World, 기타 다른 서비스 등 The Walt Disney Family of Companies의
+            ESPN, Walt Disney World, 기타 다른 서비스 등 The Walt Disney Family of Companies의
             다양한 서비스에 간편하게 로그인해 보세요.
           </div>
           <div className="brandWrap">
@@ -42,7 +42,7 @@ const MyDisney = () => {
       {/* <div className="myDisneyTextWrap">
         <div className="myDisneyInfoText">
           디즈니+는 The Walt Disney Family of Companies의 계열사입니다. MyDisney 계정으로 디즈니+,
-          ESPN, Walt Disney World, 기타 다른 서비스 등 The Walt Disney Family of Companies의 다양한
+          ESPN, Walt Disney World, 기타 다른 서비스 등 The Walt Disney Family of Companies의 다양한
           서비스에 간편하게 로그인해 보세요.
         </div>
         <div className="brandWrap">

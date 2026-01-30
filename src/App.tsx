@@ -79,7 +79,7 @@ function App() {
       {!shouldHideHeader && <Header />}
       <Routes>
         <Route path="/" element={userData ? <MainPage /> : <IntroPage />} />
-        <Route path="/intro" element={<IntroPage />} />
+        {/* <Route path="/intro" element={<IntroPage />} /> */}
         <Route path="/movie" element={<MainMovie />} />
         <Route path="/series" element={<MainSeries />} />
         <Route path="/play/:type/:id" element={<VideoPlayer />} />

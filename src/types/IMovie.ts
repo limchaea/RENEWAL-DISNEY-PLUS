@@ -1,3 +1,5 @@
+import type { Video } from "./ITV";
+
 export interface MediaBase {
   id: number;
   overview: string;
@@ -61,5 +63,5 @@ export interface MovieState {
   onfetchSeason: (seasonData: SeasonData) => Promise<void>;
   onfetchTheme: (companyId: string) => Promise<Theme[] | void>;
   onfetchCate: (genreId: string | number) => Promise<Movie[] | void>;
-  onFetchVideo: (id: string) => Promise<void[]>;
+  onFetchVideo: (id: number) => Promise<Video[]>;
 }
