@@ -25,7 +25,8 @@
     .signupFormWrap {
       font-size: 1.4rem;
       line-height: 1.6;
-      width: 40rem;
+      min-width: 24rem;
+      width: clamp(24rem, 40vw, 40rem);
       margin: 0 auto;
       .signupForm {
         display: flex;
@@ -48,7 +49,8 @@
               > input {
                 display: block;
                 border: 1px solid #fff;
-                width: 40rem;
+                min-width: 24rem;
+                width: clamp(24rem, 40vw, 40rem);
                 height: 4.8rem;
                 border-radius: 8px;
                 padding: 1.6rem;
@@ -63,7 +65,7 @@
                 height: 20px;
                 position: absolute;
                 top: 50%;
-                right: 4%;
+                right: 2rem;
                 background: url(../../../../public/icon/pwHideIcon.svg) no-repeat center;
 
                 &.active {
@@ -190,7 +192,8 @@
         }
 
         .checkboxWrap {
-          width: 40rem;
+          min-width: 24rem;
+          width: clamp(24rem, 40vw, 40rem);
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -284,7 +287,8 @@
     }
 
     .signupBtn {
-      width: 40rem;
+      min-width: 24rem;
+      width: clamp(24rem, 40vw, 40rem);
       height: 4.8rem;
       border-radius: 8px;
       text-align: center;
