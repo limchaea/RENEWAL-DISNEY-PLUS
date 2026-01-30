@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { disney } from '../api/data';
+import { movieData as disney } from '../api/data';
 import type { LocalContentItem } from '../types/IContentTypes';
 
 type SearchFilter =
