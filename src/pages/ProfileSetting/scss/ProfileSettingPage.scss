@@ -5,7 +5,7 @@
   padding: 10rem;
   align-content: center;
   justify-items: center;
-  height: 100vh;
+  height: 100%;
 
   .profileCreateWrap {
     display: flex;
@@ -118,8 +118,6 @@
           flex-direction: column;
           gap: 1.2rem;
         }
-
-
       }
     }
 

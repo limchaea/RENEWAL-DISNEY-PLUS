@@ -1,7 +1,8 @@
 @use '../../../App.scss' as rs;
 
 .wishlistPage {
-  padding-top: 200px;
+  // padding-top: 200px;
+  padding-top: clamp(80px, 20vw, 200px);
   // height: 100vh;
   color: #fff;
   .inner {
@@ -14,9 +15,10 @@
         justify-content: space-between;
         align-items: center;
         height: 100px;
+        height: clamp(50px, 20vw, 100px);
         margin-bottom: 50px;
         > h2 {
-          font-size: 2.8rem;
+          font-size: clamp(12px, 2vw, 24px);
           font-weight: 600;
         }
         .filterSelectWrap {
@@ -26,11 +28,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 120px;
-            height: 50px;
+            width: clamp(60px, 8vw, 120px);
+            height: clamp(32px, 4vw, 50px);
             border-radius: 8px;
             background: #25272c;
-            font-size: 1.6rem;
+            // font-size: 1.6rem;
+            font-size: clamp(12px, 1vw, 28px);
             // font-weight: 500;
             padding: 10px;
             border: 1px solid rgba($color: #fff, $alpha: 0.2);
@@ -38,7 +41,7 @@
             .filterToggle {
               background: url(../../../../public/icon/dropdownOpen.svg);
               display: inline-block;
-              width: 20px;
+              width: clamp(12px, 1vw, 20px);
               height: 20px;
             }
           }
@@ -90,7 +93,7 @@
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-start;
-
+          // align-items: center;
           .wishItem {
             position: relative;
             margin: 0 0 5rem 4rem;
