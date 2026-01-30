@@ -2,7 +2,8 @@
 
 .searchPage {
   .searchWrap {
-    padding-top: 200px;
+    // padding-top: 200px;
+    padding-top: clamp(80px, 20vw, 200px);
     color: #fff;
     margin: 0 auto;
     width: 90%;
@@ -10,19 +11,18 @@
     .searchTop {
       display: flex;
       flex-direction: column;
-      // height: 100vh;
       > div {
-        margin-bottom: 4rem;
+        margin-bottom: clamp(16px, 2vw, 40px);
       }
       .searchInputWrap {
-        // border: 1px solid red;
+        border: 1px solid red;
         position: relative;
         input {
           width: 100%;
           height: 56px;
           border-bottom: 2px solid #fff;
           color: #fff;
-          font-size: 2.4rem;
+          font-size: clamp(12px, 2vw, 24px);
         }
         .searchBtn {
           position: absolute;
@@ -30,7 +30,7 @@
           right: 0;
           transform: translateY(-50%);
           img {
-            width: 24px;
+            width: clamp(16px, 2vw, 24px);
             height: 24px;
           }
         }
@@ -38,24 +38,27 @@
 
       .genreSelectWrap {
         position: relative;
-        margin-bottom: 8rem;
+        margin-bottom: clamp(16px, 4vw, 80px);
+        border: 1px solid red;
         .genreSelectHeader {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 160px;
-          height: 50px;
+          // width: 160px;
+          width: clamp(80px, 8vw, 160px);
+          height: clamp(32px, 4vw, 50px);
           border-radius: 8px;
           background: #25272c;
-          font-size: 1.6rem;
-          // font-weight: 500;
+          // font-size: 1.6rem;
+          font-size: clamp(12px, 1vw, 28px);
           padding: 10px;
+          // padding: clamp(5px, 1vw, 10px);
           border: 1px solid rgba($color: #fff, $alpha: 0.2);
 
           .genreToggle {
             background: url(../../../../public/icon/dropdownOpen.svg);
             display: inline-block;
-            width: 20px;
+            width: clamp(12px, 1vw, 20px);
             height: 20px;
           }
         }
@@ -70,13 +73,15 @@
           .genreList {
             position: absolute;
             margin-top: 1rem;
-            width: 360px;
-            height: 240px;
+            // width: 360px;
+            width: clamp(120px, 1vw, 360px);
+            // height: 240px;
             background: #25272c;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             border: 1px solid rgba($color: #fff, $alpha: 0.2);
             font-size: 1.4rem;
+            // font-size: clamp(12px, 1vw, 16px);
             text-align: center;
             align-items: center;
             border-radius: 8px;

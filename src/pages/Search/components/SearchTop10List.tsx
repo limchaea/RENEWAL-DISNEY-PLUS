@@ -22,7 +22,32 @@ const SearchTop10List = ({ title, data }: SearchTop10Props) => {
   return (
     <section className="searchTop10List">
       <HeaderTitle mainTitle={title} />
-      <Swiper slidesPerView={5.3} spaceBetween={20} className="mySwiper">
+      <Swiper
+        slidesPerView={5.3}
+        spaceBetween={20}
+        className="mySwiper"
+        breakpoints={{
+          0: {
+            slidesPerView: 1.2,
+            spaceBetween: 8,
+          },
+          281: {
+            slidesPerView: 2.4,
+            spaceBetween: 8,
+          },
+          481: {
+            slidesPerView: 3.4,
+            spaceBetween: 16,
+          },
+          769: {
+            slidesPerView: 3.4,
+            spaceBetween: 16,
+          },
+          1201: {
+            slidesPerView: 4.2,
+            spaceBetween: 16,
+          },
+        }}>
         {data.slice(0, 10).map((el) => (
           <SwiperSlide key={el.id}>
             <Link to={`/play/${el.media_type}/${el.id}`}>

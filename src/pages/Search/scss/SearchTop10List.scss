@@ -1,5 +1,6 @@
 .searchTop10List {
-  padding-bottom: 10rem;
+  // padding-bottom: 10rem;
+  padding-bottom: clamp(20px, 2vw, 100px);
   .mainTItle {
     span {
       display: none;
@@ -13,6 +14,7 @@
 
       img {
         width: 100%;
+        // width: clamp(200px, 2vw, 500px);
         background: rgba(#eee, 0.3);
         vertical-align: middle;
         transition: ease 0.3s;
