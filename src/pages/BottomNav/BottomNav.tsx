@@ -18,27 +18,26 @@ const BottomNav = () => {
           <Link className="icon setting" to="/profile/edit"></Link>
         </li>
         <li>
-          <Link className="icon hamBtn" to="">
-            <ul className="sub-nav">
-              <li>
-                <Link className="LinkBtn" to="/">
-                  홈
-                </Link>
-              </li>
+          <Link className="icon hamBtn" to=""></Link>
+          <ul className="sub-nav">
+            <li>
+              <Link className="LinkBtn" to="/">
+                홈
+              </Link>
+            </li>
 
-              <li>
-                <Link className="LinkBtn" to="/kids/movie">
-                  영화
-                </Link>
-              </li>
+            <li>
+              <Link className="LinkBtn" to="/kids/movie">
+                영화
+              </Link>
+            </li>
 
-              <li>
-                <Link className="LinkBtn" to="/kids/series">
-                  시리즈
-                </Link>
-              </li>
-            </ul>
-          </Link>
+            <li>
+              <Link className="LinkBtn" to="/kids/series">
+                시리즈
+              </Link>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
