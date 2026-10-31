@@ -1,4 +1,4 @@
-// ✅ 중복 제거된 genres 데이터 (id 기준 고유)
+// 중복 제거된 genres 데이터 (id 기준 고유)
 
 export const genres = [
   {
